@@ -9,9 +9,6 @@ const connectDB = require('./db');
 dotenv.config();
 const app = express();
 
-// Middleware
-// app.use(express.json());
-// app.use(cors());
 
 connectDB();
 
@@ -21,11 +18,6 @@ app.use(cors({
   origin: '*', 
   methods: ['GET', 'POST'],
 }));
-// Connect to MongoDB (replace <your_connection_string> in .env)
-// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-//   .then(() => console.log("MongoDB connected"))
-//   .catch(err => console.error("MongoDB connection error:", err));
-
 
 // Basic route
 app.get('/', (req, res) => {
