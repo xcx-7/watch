@@ -62,7 +62,7 @@ function ProductSection() {
   const totalPages = 3; // Example total pages
 
   return (
-    <section className="py-16 bg-white">
+    <section id="products" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Title & Subtitle */}
         <div className="text-center mb-10">

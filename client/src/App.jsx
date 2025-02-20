@@ -4,6 +4,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import WatchModel from './components/WatchModel';
+import ProductSection from './components/ProductSection';
 
 function App() {
   return (
@@ -39,7 +40,8 @@ function App() {
         <h2 className="text-3xl mb-4">About</h2>
         <p>Your watch website description goes here.</p>
       </section>
-
+{/* 3. Product Section */}
+<ProductSection />
       <section id="contact" className="bg-gray-800 text-white py-16 px-8">
         <h2 className="text-3xl mb-4">Contact</h2>
         <p>Contact details and/or a form go here.</p>

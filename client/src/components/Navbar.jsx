@@ -1,42 +1,7 @@
-// // src/components/Navbar.jsx
-// import React from 'react';
-
-// const Navbar = () => {
-//   return (
-//     <nav className="w-full bg-gray-1000 text-white p-4 flex justify-between items-center">
-//       <div className="text-2xl font-bold">WatchStore</div>
-//       <ul className="hidden md:flex space-x-4">
-//         <li>
-//           <a href="#home" className="hover:text-gray-400">
-//             Home
-//           </a>
-//         </li>
-//         <li>
-//           <a href="#about" className="hover:text-gray-400">
-//             About
-//           </a>
-//         </li>
-//         <li>
-//           <a href="#contact" className="hover:text-gray-400">
-//             Contact
-//           </a>
-//         </li>
-//       </ul>
-//       {/* Optionally, add a hamburger menu for mobile here */}
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
-
-
-
-
 
 // src/components/Navbar.jsx
 import React, { useState } from 'react';
+import ProductSection from './ProductSection';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,6 +24,15 @@ const Navbar = () => {
             About
           </a>
         </li>
+        <li>
+            <a
+              href="#products"
+              className="hover:text-gray-400"
+              onClick={() => setIsOpen(false)}
+            >
+              products
+            </a>
+          </li>
         <li>
           <a href="#contact" className="hover:text-gray-400">
             Contact
@@ -113,16 +87,17 @@ const Navbar = () => {
             >
               About
             </a>
-          </li>
-          <li>
+            <li>
             <a
-              href="#contact"
+              href=""
               className="hover:text-gray-400"
               onClick={() => setIsOpen(false)}
             >
               Contact
             </a>
           </li>
+          </li>
+      
         </ul>
       )}
     </nav>
