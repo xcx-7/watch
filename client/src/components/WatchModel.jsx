@@ -1,41 +1,56 @@
 
+
+
 // src/components/WatchModel.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
 const WatchModel = () => {
-  const { scene } = useGLTF('/assets/watch2.glb'); // Ensure the path is correct
+  const { scene } = useGLTF('/assets/watch2.glb'); // Verify the model path
+  const containerRef = useRef(null);
+  
+  // State to track the container's dimensions
+  const [containerSize, setContainerSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
-  // Track the window width for responsiveness
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  // Update container size on mount and on window resize
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const updateSize = () => {
+      if (containerRef.current) {
+        setContainerSize({
+          width: containerRef.current.clientWidth,
+          height: containerRef.current.clientHeight,
+        });
+      }
+    };
+    updateSize(); // initial measurement
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
   }, []);
 
-  // Define scale values for different breakpoints:
-  // Tailwind’s default breakpoints: sm: ~640px, md: ~768px, lg: ~1024px
+  // Compute scale based on container width.
+  // Tweak these numbers until the model always appears at a good size.
   const getScale = (width) => {
-    if (width < 640) {
-      return 0.05; // Mobile devices
-    } else if (width < 1024) {
-      return 0.08; // Tablets and small desktops
-    } else {
-      return 0.1; // Larger desktops
-    }
+    if (width < 400) return 0.1;     // For very small containers (e.g. mobile overlay)
+    else if (width < 640) return 0.1;  // For containers between 400 and 640px (desktop view on a small window)
+    else if (width < 1024) return 0.12; // For medium-size containers (tablets/small desktops)
+    else return 0.14;                // For large containers (large desktops)
   };
 
-  const scale = getScale(windowWidth);
+  const scale = getScale(containerSize.width);
 
-  // Optional: Adjust camera distance if needed (increase z to zoom out)
-  const cameraPosition = [0, 0, 5];
+  // Compute aspect ratio based on the container's dimensions.
+  const aspect =
+    containerSize.width && containerSize.height
+      ? containerSize.width / containerSize.height
+      : window.innerWidth / window.innerHeight;
 
   return (
-    <div className="w-full h-full">
-      <Canvas camera={{ position: cameraPosition, fov: 50 }}>
+    <div ref={containerRef} className="w-full h-full">
+      <Canvas camera={{ position: [0, 0, 5], fov: 50, aspect }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} />
         <primitive object={scene} scale={scale} />
