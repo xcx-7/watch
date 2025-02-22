@@ -64,8 +64,40 @@
 
 
 
+// // src/App.jsx
+// import React from 'react';
+// import Navbar from './components/Navbar';
+// import WatchModel from './components/WatchModel';
+// import ProductSection from './components/ProductSection';
 
+// function App() {
+//   return (
+//     <div className="App bg-black min-h-screen text-white">
+//       <Navbar />
+//       <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-6">
+//         <div className="absolute inset-0 bg-black opacity-90" />
+//         <div className="relative z-10 flex flex-col items-center text-center px-4 mt-16 md:mt-0">
+//           <h1 className="text-4xl md:text-6xl font-extrabold mb-4">Discover Timeless Elegance</h1>
+//           <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl">
+//             Experience luxury and precision with our exclusive collection of watches.
+//           </p>
+//           <div className="relative w-full h-96 md:h-[500px]">
+//             <WatchModel />
+//           </div>
+//           <a href="#products" className="bg-red-500 hover:bg-red-600 px-6 py-3 mt-6 text-lg font-bold rounded-lg transition-all duration-300">
+//             Explore Collection
+//           </a>
+//         </div>
+//       </section>
+//       <ProductSection />
+//       <footer className="bg-gray-900 text-center py-6 mt-16">
+//         <p>&copy; {new Date().getFullYear()} WatchStore. All Rights Reserved.</p>
+//       </footer>
+//     </div>
+//   );
+// }
 
+// export default App;
 
 
 // src/App.jsx
@@ -79,17 +111,19 @@ function App() {
     <div className="App bg-black min-h-screen text-white">
       <Navbar />
       <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-6">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-black opacity-90" />
-        <h1 className="text-5xl md:text-6xl font-extrabold z-10 mb-4">Discover Timeless Elegance</h1>
-        <p className="text-lg md:text-xl text-gray-300 z-10 mb-6 max-w-2xl">
-          Experience luxury and precision with our exclusive collection of watches.
-        </p>
-        <div className="relative w-full h-96 md:h-[500px]">
-          <WatchModel />
+        <div className="absolute inset-0 bg-black opacity-90" />
+        <div className="relative z-10 flex flex-col items-center text-center px-4 mt-16 md:mt-0">
+          <h1 className="text-4xl md:text-6xl font-extrabold mt-30 ">Discover Timeless Elegance</h1>
+          <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl">
+            Experience luxury and precision with our exclusive collection of watches.
+          </p>
+          <div className="relative w-full h-96 md:h-[500px]">
+            <WatchModel />
+          </div>
+          <a href="#products" className="bg-red-500 hover:bg-red-600 px-6 py-3 mt-6 text-lg font-bold rounded-lg transition-all duration-300">
+            Explore Collection
+          </a>
         </div>
-        <a href="#products" className="z-10 bg-red-500 hover:bg-red-600 px-6 py-3 mt-6 text-lg font-bold rounded-lg transition-all duration-300">
-          Explore Collection
-        </a>
       </section>
       <ProductSection />
       <footer className="bg-gray-900 text-center py-6 mt-16">
