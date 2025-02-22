@@ -37,7 +37,7 @@ const WatchModel = () => {
     <div ref={containerRef} className="w-full h-full relative bg-black flex items-center justify-center overflow-hidden">
        {/* Gradient Light Effect */}
        <div className="absolute inset-0 flex items-center justify-center">
-         <div className="w-2/5 h-2/5 bg-blue opacity-10 rounded-full blur-3xl" />
+         <div className="w-2/5 h-2/5 bg-white opacity-10 rounded-full blur-3xl" />
        </div>
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={1} />
