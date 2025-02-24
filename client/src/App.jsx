@@ -100,6 +100,47 @@
 // export default App;
 
 
+// // src/App.jsx
+// import React from 'react';
+// import Navbar from './components/Navbar';
+// import WatchModel from './components/WatchModel';
+// import ProductSection from './components/ProductSection';
+
+// function App() {
+//   return (
+//     <div className="App bg-black min-h-screen text-white">
+//       <Navbar />
+//       <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-6">
+//         <div className="absolute inset-0 bg-black opacity-90" />
+//         <div className="relative z-10 flex flex-col items-center text-center px-4 mt-16 md:mt-0">
+//           <h1 className="text-4xl md:text-6xl font-extrabold mt-30 ">Discover Timeless Elegance</h1>
+//           <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl">
+//             Experience luxury and precision with our exclusive collection of watches.
+//           </p>
+//           <div className="relative w-full h-96 md:h-[500px]">
+//             <WatchModel />
+//           </div>
+//           {/* <a href="#products" className="bg-red-500 hover:bg-red-600 px-6 py-3 mt-6 text-lg font-bold rounded-lg transition-all duration-300">
+//             Explore Collection
+//           </a> */}
+//         </div>
+//       </section>
+//       <ProductSection />
+//       <footer className="bg-gray-900 text-center py-6 mt-16">
+//         <p>&copy; {new Date().getFullYear()} WatchStore. All Rights Reserved.</p>
+//       </footer>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
 // src/App.jsx
 import React from 'react';
 import Navbar from './components/Navbar';
@@ -112,20 +153,43 @@ function App() {
       <Navbar />
       <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-6">
         <div className="absolute inset-0 bg-black opacity-90" />
-        <div className="relative z-10 flex flex-col items-center text-center px-4 mt-16 md:mt-0">
-          <h1 className="text-4xl md:text-6xl font-extrabold mt-30 ">Discover Timeless Elegance</h1>
+        <div className="relative z-10 flex flex-col items-center text-center px-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-4">Discover Timeless Elegance</h1>
           <p className="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl">
             Experience luxury and precision with our exclusive collection of watches.
           </p>
           <div className="relative w-full h-96 md:h-[500px]">
             <WatchModel />
           </div>
-          <a href="#products" className="bg-red-500 hover:bg-red-600 px-6 py-3 mt-6 text-lg font-bold rounded-lg transition-all duration-300">
+          {/* <a href="#products" className="bg-red-500 hover:bg-red-600 px-6 py-3 mt-6 text-lg font-bold rounded-lg transition-all duration-300">
             Explore Collection
-          </a>
+          </a> */}
         </div>
       </section>
+      
+      {/* About Section */}
+      <section id="about" className="py-16 px-6 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">About Us</h2>
+        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+          We are dedicated to providing the finest selection of luxury watches, blending timeless elegance with modern craftsmanship.
+        </p>
+      </section>
+      
       <ProductSection />
+      
+      {/* Contact Section */}
+      <section id="contact" className="py-16 px-6 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold mb-6">Contact Us</h2>
+        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+          Get in touch with us via our social media platforms.
+        </p>
+        <div className="flex justify-center mt-6 space-x-6">
+          <a href="#" className="text-gray-300 hover:text-white text-2xl">🐦 Twitter</a>
+          <a href="#" className="text-gray-300 hover:text-white text-2xl">📷 Instagram</a>
+          <a href="#" className="text-gray-300 hover:text-white text-2xl">🔗 LinkedIn</a>
+        </div>
+      </section>
+      
       <footer className="bg-gray-900 text-center py-6 mt-16">
         <p>&copy; {new Date().getFullYear()} WatchStore. All Rights Reserved.</p>
       </footer>
