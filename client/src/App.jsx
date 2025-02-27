@@ -1,26 +1,16 @@
 
 
-
 // src/App.jsx
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import WatchModel from './components/WatchModel';
 import ProductSection from './components/ProductSection';
 import AdminDashboard from './components/AdminDashboard';
 
-function App() {
-  const [content, setContent] = useState({
-    title: "Discover Timeless Elegance",
-    description: "Experience luxury and precision with our exclusive collection of watches.",
-    socialLinks: {
-      facebook: "https://facebook.com",
-      twitter: "https://twitter.com",
-      instagram: "https://instagram.com"
-    }
-  });
-
+function Home({ content }) {
   return (
-    <div className="App bg-black min-h-screen text-white">
+    <div className="bg-black min-h-screen text-white">
       <Navbar />
       <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-6">
         <div className="absolute inset-0 bg-black opacity-90" />
@@ -36,11 +26,31 @@ function App() {
         </div>
       </section>
       <ProductSection />
-      <AdminDashboard onUpdate={setContent} />
       <footer className="bg-gray-900 text-center py-6 mt-16">
         <p>&copy; {new Date().getFullYear()} WatchStore. All Rights Reserved.</p>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  const [content, setContent] = useState({
+    title: "Discover Timeless Elegance",
+    description: "Experience luxury and precision with our exclusive collection of watches.",
+    socialLinks: {
+      facebook: "https://facebook.com",
+      twitter: "https://twitter.com",
+      instagram: "https://instagram.com"
+    }
+  });
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home content={content} />} />
+        <Route path="/admin" element={<AdminDashboard onUpdate={setContent} />} />
+      </Routes>
+    </Router>
   );
 }
 
