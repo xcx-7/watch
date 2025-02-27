@@ -23,6 +23,7 @@ const Navbar = () => {
         <div className="text-2xl font-bold">WatchStore</div>
         <ul className="hidden md:flex space-x-6">
           <li><a href="#home" className="hover:text-gray-400">Home</a></li>
+          <li><a href="#about" className="hover:text-gray-400">About</a></li>
           <li><a href="#products" className="hover:text-gray-400">Products</a></li>
           <li><a href="#contact" className="hover:text-gray-400">Contact</a></li>
         </ul>
