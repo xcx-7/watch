@@ -1,16 +1,26 @@
-// src/components/AdminDashboard.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = ({ onUpdate }) => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    title: "Discover Timeless Elegance",
-    description: "Experience luxury and precision with our exclusive collection of watches.",
+    title: "",
+    description: "",
     socialLinks: {
-      facebook: "https://facebook.com",
-      twitter: "https://twitter.com",
-      instagram: "https://instagram.com"
+      facebook: "",
+      twitter: "",
+      instagram: ""
     }
   });
+
+  // Load saved data when admin panel opens
+  useEffect(() => {
+    const savedContent = localStorage.getItem("siteContent");
+    if (savedContent) {
+      setFormData(JSON.parse(savedContent));
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +38,7 @@ const AdminDashboard = ({ onUpdate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onUpdate(formData);
+    navigate("/admin"); // Redirect to home after saving
   };
 
   return (
